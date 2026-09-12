@@ -4,6 +4,7 @@ import (
 	"context"
 	"encoding/json"
 	"errors"
+	"log/slog"
 	"net/http"
 	"strconv"
 
@@ -153,6 +154,7 @@ func handleServiceError(w http.ResponseWriter, err error, fallbackMessage string
 	case errors.As(err, &validationErr):
 		writeValidationError(w, validationErr.Fields)
 	default:
+		slog.Error(fallbackMessage, "error", err)
 		writeError(w, http.StatusInternalServerError, fallbackMessage)
 	}
 }
