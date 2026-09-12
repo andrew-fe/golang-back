@@ -1,0 +1,17 @@
+# Binarios
+/bin/
+/api
+/api.exe
+*.exe
+*.test
+*.out
+
+# Entorno local
+.env
+.env.local
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
